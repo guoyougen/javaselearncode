@@ -14,7 +14,10 @@ public class UsePoker {
     public static void main(String[] args){
       //
         Poker game= new Poker(true);
-        game.shuffle(game.newPoker());
+        game.print();
+        game.shuffle(Poker.getCARDS());
+        System.out.println("洗牌结束");
+        game.print();
         game.play(Poker.getCARDS(),3,18);
     }
 }

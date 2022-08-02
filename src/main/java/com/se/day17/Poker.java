@@ -15,7 +15,8 @@ import java.util.*;
 public class Poker {
 
     //属性
-    private static List<Card> CARDS=new ArrayList<>();
+    private static final List<Card> CARDS=new ArrayList<Card>(54);
+
     private boolean hasKing;
 
 //构造方法,请自行完成
@@ -29,7 +30,7 @@ public class Poker {
     }
 //业务方法
     public List<Card> newPoker() {
-        if(CARDS != null) {
+        if(CARDS.size()!=0) {
             CARDS.clear();
         }
 //TODO 请自行实现
@@ -42,8 +43,8 @@ public class Poker {
             }
         }
         if(hasKing){
-            CARDS.add(new JokerCard("BigJoker"));
-            CARDS.add(new JokerCard("LittleJoker"));
+            CARDS.add(new JokerCard("大王"));
+            CARDS.add(new JokerCard("小王"));
         }
         return CARDS;
     }
@@ -78,13 +79,22 @@ public class Poker {
                 }
             }
         }
+
+        System.out.printf("\n发牌结束\n");
         for(int i=0; i<player;i++){
             for (int j=0; j<cardsForEach;j++){
-            System.out.print(playerCard[i][j].toString()+" ");
+            System.out.printf("%3s ",playerCard[i][j].toString());
             }
             System.out.println();
         }
 
     }
 
+    public void print() {
+        System.out.printf("打印牌堆里的扑克牌\n");
+        for(int i=0; i<CARDS.size(); i++){
+            System.out.printf("%3s ",CARDS.get(i));
+        }
+        System.out.println();
+    }
 }
