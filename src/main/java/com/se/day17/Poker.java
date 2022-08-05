@@ -18,6 +18,17 @@ public class Poker {
     private static final List<Card> CARDS=new ArrayList<Card>(54);
 
     private boolean hasKing;
+    static {
+        Suit[] suits= Suit.values();
+        Rank[] ranks=Rank.values();
+        for (Suit suit : suits) {
+            for (Rank rank : ranks){
+                CARDS.add(new Card(suit, rank));
+            }
+        }
+        CARDS.add(new JokerCard("大王"));
+        CARDS.add(new JokerCard("小王"));
+    }
 
 //构造方法,请自行完成
     public Poker(){
