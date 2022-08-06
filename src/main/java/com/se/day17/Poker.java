@@ -15,7 +15,8 @@ import java.util.*;
 public class Poker {
 
     //属性
-    private static final List<Card> CARDS=new ArrayList<Card>(54);
+    private static final List<Card> CARDS=new ArrayList<Card>(52);
+    private List<Card> currentCards;
 
     private boolean hasKing;
     static {
@@ -26,46 +27,29 @@ public class Poker {
                 CARDS.add(new Card(suit, rank));
             }
         }
-        CARDS.add(new JokerCard("大王"));
-        CARDS.add(new JokerCard("小王"));
     }
 
 //构造方法,请自行完成
     public Poker(){
         this.hasKing = false;
-        newPoker();
+        currentCards = newPoker();
     }
     public Poker(boolean hasKing){
         this.hasKing = hasKing;
-        newPoker();
+        currentCards=newPoker();
     }
 //业务方法
     public List<Card> newPoker() {
-        if(CARDS.size()!=0) {
-            CARDS.clear();
-        }
-//TODO 请自行实现
-
-        Suit[] suits= Suit.values();
-        Rank[] ranks=Rank.values();
-        for (Suit suit : suits) {
-            for (Rank rank : ranks){
-                CARDS.add(new Card(suit, rank));
-            }
-        }
+        List<Card> newList=CARDS;
         if(hasKing){
-            CARDS.add(new JokerCard("大王"));
-            CARDS.add(new JokerCard("小王"));
+            newList.add(new JokerCard("大王"));
+            newList.add(new JokerCard("小王"));
         }
-        return CARDS;
-    }
-
-    public static List<Card> getCARDS() {
-        return CARDS;
+        return newList;
     }
 
     public void shuffle(List<Card> poker) {
-        Collections.shuffle(CARDS);
+        Collections.shuffle(poker);
     }
     public void play(List<Card> poker, int player, int cardsForEach) {
         if(poker==null) {
@@ -103,9 +87,15 @@ public class Poker {
 
     public void print() {
         System.out.printf("打印牌堆里的扑克牌\n");
-        for(int i=0; i<CARDS.size(); i++){
-            System.out.printf("%3s ",CARDS.get(i));
+        for(int i=0; i<currentCards.size(); i++){
+            if(i%10==0){
+                System.out.println();
+            }
+            System.out.printf("%3s ",currentCards.get(i));
         }
         System.out.println();
+    }
+    public List<Card> getCurrentCards(){
+        return currentCards;
     }
 }

@@ -15,9 +15,9 @@ public class UsePoker {
       //
         Poker game= new Poker(true);
         game.print();
-        game.shuffle(Poker.getCARDS());
+        game.shuffle(game.getCurrentCards());
         System.out.println("洗牌结束");
         game.print();
-        game.play(Poker.getCARDS(),3,18);
+        game.play(game.getCurrentCards(),3,18);
     }
 }

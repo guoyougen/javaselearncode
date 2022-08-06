@@ -32,6 +32,9 @@ public class Order {
         this.orderState = orderState;
         this.customer = customer;
     }
+    public Order(){
+
+    }
 
     @Override
     public boolean equals(Object o) {
