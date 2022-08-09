@@ -1,0 +1,11 @@
+
+H
+java:S1135"2Complete the task associated to this TODO comment.(›ËÓ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÏÚøÓûÿÿÿÿ
+g
+java:S3457!"Q%n should be used in place of \n to produce the platform-specific line separator.(İ¶Ó¦
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(İ¶Ó¦
+V
+java:S1612-"@Replace this lambda with method reference 'System.out::println'.(ÁÑÏê
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(ÁÑÏê
+V	java:S125."<This block of commented-out lines of code should be removed.(ÓŠŠüÿÿÿÿ
